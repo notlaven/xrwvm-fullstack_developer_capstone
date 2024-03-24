@@ -39,7 +39,7 @@ class CarModel(models.Model):
     # Other fields as needed
 
     def __str__(self):
-        return self.car_make + self.type  # Return the name as the string representation
+        return self.name  # Return the name as the string representation
 
 
 # <HINT> Create a Car Model model `class CarModel(models.Model):`:
