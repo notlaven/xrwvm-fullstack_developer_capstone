@@ -22,7 +22,7 @@ class CarModel(models.Model):
     year = models.IntegerField(default=2023, validators=[
             MaxValueValidator(2023),
             MinValueValidator(2015)
-        ])
+    ])
 
     def __str__(self):
         return self.name
