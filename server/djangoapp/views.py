@@ -75,7 +75,7 @@ def get_dealer_details(request, dealer_id):
         return JsonResponse({"status": 200, "dealer": dealership})
     else:
         return JsonResponse({"status": 400, "message": "Bad Request"})
- 
+
 
 def get_dealer_reviews(request, dealer_id):
     # if dealer id has been provided
@@ -94,17 +94,8 @@ def get_dealer_reviews(request, dealer_id):
 # def get_dealer_details(request, dealer_id):
 # ...
 
-def get_dealer_details(request, dealer_id):
-    if (dealer_id):
-        endpoint = "/fetchDealer/"+str(dealer_id)
-        dealership = get_request(endpoint)
-        return JsonResponse({"status": 200, "dealer": dealership})
-    else:
-        return JsonResponse({"status": 400, "message": "Bad Request"})
-
-
 def add_review(request):
-    if request.user.is_anonymous == false:
+    if (request.user.is_anonymous == false):
         data = json.loads(request.body)
         try:
             post_review(data)
@@ -112,5 +103,7 @@ def add_review(request):
         except Exception as err:
             return JsonResponse({"status": 401,
                                  "message": "Error in posting review"})
+            print(f"Unexpected {err=}, {type(err)=}")
+            
     else:
         return JsonResponse({"status": 403, "message": "Unauthorized"})
