@@ -14,8 +14,8 @@ sentiment_analyzer_url = os.getenv(
 
 def get_request(endpoint, **kwargs):
     params = ""
-    if    (kwargs):
-        for    key, value    in    kwargs.items():
+    if(kwargs):
+        for key, value in kwargs.items():
             params = params+key+"="+value+"&"
 
     request_url = backend_url+endpoint+"?"+params
