@@ -1,6 +1,5 @@
 # Uncomment the required imports before adding the code
 
-from django.shortcuts import render
 from django.contrib.auth import logout
 from .models import CarMake, CarModel
 
@@ -36,15 +35,16 @@ def login_user(request):
     return JsonResponse(data)
 
 
-def logout_user(request): 
+def logout_user(request):
     logout(request)
-    data = {"userName":""}
+    data = {"userName": ""}
     return JsonResponse(data)
 
 # Create a `registration` view to handle sign up request
 # @csrf_exempt
 # def registration(request):
 # ...
+
 
 def get_cars(request):
     count = CarMake.objects.filter().count()
