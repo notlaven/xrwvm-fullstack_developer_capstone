@@ -92,7 +92,7 @@ def get_dealer_reviews(request, dealer_id):
 
 
 def add_review(request):
-    if (!request.user.is_anonymous):
+    if (request.user.is_anonymous is false):
         data = json.loads(request.body)
         try:
             post_review(data)
